@@ -7,9 +7,13 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'localhost:3000', 'https://oc-boulderbiketour.herokuapp.com'
+    origins '*'
 
-    resource '*',
+    resource 'riders',
+      headers: :any,
+      methods: :get
+
+    resource 'submissions',
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end

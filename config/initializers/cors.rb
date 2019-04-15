@@ -9,11 +9,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins '*'
 
-    resource 'riders',
-      headers: :any,
-      methods: :get
-
-    resource 'submissions',
+    resource '*',
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
